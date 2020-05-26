@@ -24,9 +24,19 @@
 
 \usepackage{fancyhdr}
 \usepackage{hyperref}
-\usepackage[showcrop,showframe,papersize={5.5in,8.5in}]{geometry}
+% \usepackage[showcrop,showframe,papersize={5.5in,8.5in}]{geometry}
+\usepackage[papersize={5.5in,8.5in}]{geometry}
 
 \usepackage[all]{nowidow}
+
+\usepackage{iftex}
+\ifXeTeX
+  \usepackage{fontspec}
+\else
+  \usepackage{luatextra}
+\fi
+\defaultfontfeatures{Ligatures=TeX}
+\usepackage{polyglossia}
 
 \usepackage[stable]{footmisc}
 \usepackage{graphicx}
@@ -56,29 +66,16 @@
   }
 \centerpoemon{Yet ’gainst their brothers’ lives men point the murderous steel;}
 
+\setmainlanguage{english}
+\setotherlanguages{greek,latin}
+\newfontfamily{\greekfont}{GFS Complutum}
+
 \renewcommand{\chaptername}{Book}
 \renewcommand{\thechapter}{\Roman{chapter}}
 \renewcommand{\thesection}{\Roman{section}}
 
 \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
 \renewcommand{\sectionmark}[1]{\markright{#1}}
-
-% \makeatletter
-% \def\@makechapterhead#1{%
-%   \vspace*{50\p@}%
-%   {\parindent \z@ \raggedright \normalfont
-%     \ifnum \c@secnumdepth >\m@ne
-%       \if@mainmatter
-%         \huge\bfseries \@chapapp\space \thechapter
-%         \par\nobreak
-%         \vskip 20\p@
-%       \fi
-%     \fi
-%     \interlinepenalty\@M
-%     \Huge \bfseries #1\par\nobreak
-%     \vskip 40\p@
-%   }}
-% \makeatother
 
 \newenvironment{abstract}%
   {\noindent \textbf{\scshape Summary} \\ \rightskip1in\itshape\small}%
@@ -100,12 +97,37 @@
 
 \thispagestyle{empty}
 \hspace{0pt}
+\newpage
+
+\thispagestyle{empty}
+\hspace{0pt}
+\newpage
+
+\thispagestyle{empty}
+\hspace{0pt}
 \vfill
 \begin{center}
   \Large
   \simpletitle
 \end{center}
 \vfill
+
+\pagebreak
+\thispagestyle{empty}
+
+\hspace{0pt}
+\vfill
+
+\emph{\href{http://www.gutenberg.org/ebooks/14328}{http://www.gutenberg.org/ebooks/14328}}
+
+\emph{This eBook is for the use of anyone anywhere in the United States and
+most other parts of the world at no cost and with almost no
+restrictions whatsoever. You may copy it, give it away or re-use it
+under the terms of the Project Gutenberg License included with this
+eBook or online at www.gutenberg.org. If you are not located in the
+United States, you'll have to check the laws of the country where you
+are located before using this ebook.}
+
 \pagebreak
 
 \thispagestyle{empty}
@@ -124,14 +146,21 @@
 \hspace{0pt}
 \vfill
 
-% ὄμως δὲ και ἐν τούτοις διαλάμπει τὸ καλὸν,
-% ἐπειδὰν φέρῃ τις εὐκόλως πολλὰς καὶ μεγάλας
-% ἀτυχίας, μη δι᾿ ἀναλγησίαν, ἀλλὰ γεννάδας
-% ὤν καὶ μεγαλόψυχος
+\noindent
+\begin{greek}
+ὄμως δὲ και ἐν τούτοις διαλάμπει τὸ καλὸν,
+ἐπειδὰν φέρῃ τις εὐκόλως πολλὰς καὶ μεγάλας
+ἀτυχίας, μη δι᾿ ἀναλγησίαν, ἀλλὰ γεννάδας
+ὤν καὶ μεγαλόψυχος
+\end{greek}
 
-\noindent \emph{homôs de kai en toutois dialampei to kalon, epeidan pherê tis eukolôs pollas kai megalas atychias, mê di analgêsian, alla gennadas ôn kai \mbox{megalopsychos.}}
+\vspace{2em}
 
-Aristotle's Ethics, I., xi. 12.
+\noindent {homôs de kai en toutois dialampei to kalon, epeidan pherê tis eukolôs pollas kai megalas atychias, mê di analgêsian, alla gennadas ôn kai \mbox{megalopsychos}}
+
+\vspace{2em}
+
+\noindent Aristotle's Ethics, I., xi. 12.
 
 \vfill
 
@@ -150,14 +179,19 @@ EXPraefectvs Praetorio Praefectvs VrbiS Et Comes Consvl ORDinarivs ET
 PARTICivs} (For description vid. Preface, p.~\pageref{diptych})}
 \end{figure}
 
+\pagebreak
+\thispagestyle{empty}
+
 
 \vfill
 
 \maketitle
 
+\thispagestyle{empty}
 \hspace{0pt}
 \vfill
 
+\begin{latin}
 Quantumlibet igitur sæviant mali, sapienti tamen corona non
 decidet, non arescet.
 
@@ -165,6 +199,7 @@ Melioribus animum conformaveris, nihil opus est judice præmium
 deferente, tu te ipse excellentioribus addidisti; studium ad pejora     
 deflexeris, extra ne quæsieris ultorem, tu te ipse in deteriora        
 trusisti.                                                               
+\end{latin}
 
 \vfill
 \pagebreak
@@ -462,6 +497,7 @@ mind:
 
 
 
+\newpage
 \section{His despondency}
 
 \begin{vpoem}{24}
@@ -890,7 +926,8 @@ passion may be softened by gentle treatment, till they can bear the
 force of sharper remedies.'
 
 
-\section{All things have their needful order}
+\newpage
+\section{All things have their needful \mbox{order}}
 
 \begin{vpoem}{24}
     He who to th' unwilling furrows \\
@@ -1643,7 +1680,7 @@ those to whom she is united.'
       Rome fired, the Fathers slain--- \\
     Whose hand with brother's slaughter wet \\
       A mother's blood did stain. \\!
-
+\newpage
     No pitying tear his cheek bedewed, \\
       As on the corse he gazed; \\
     That mother's beauty, once so fair, \\
@@ -1942,6 +1979,7 @@ way, and recognise the beauty of true happiness.'
 
 %SONG I.
 
+\newpage
 \section{The thorns of error}
 
 \begin{vpoem}{24}
@@ -2458,7 +2496,7 @@ themselves make men completely happy.'
       For not on leafy stems \\
     Do ye within the green wood look for gold, \\
       Nor strip the vine for gems; \\!
-
+\newpage
       Your nets ye do not spread \\
     Upon the hill-tops, that the groaning board \\
       With fish be furnishèd; \\
@@ -3227,7 +3265,7 @@ external into itself; but, as Parmenides says of it,
   ```In body like to a sphere on all sides perfectly rounded,''\footnote{Plato, ‘Timæus,’ 29, B; Jowett, vol. iii., p. 449.}
 \end{quote}
 
-it rolls the restless orb of the universe, keeping itself motionless the
+It rolls the restless orb of the universe, keeping itself motionless the
 while. And if I have also employed reasonings not drawn from without,
 but lying within the compass of our subject, there is no cause for thee
 to marvel, since thou hast learnt on Plato's authority that words ought
@@ -4833,7 +4871,7 @@ fall to ruin.'
       Hail that strange form he never knew? \\
     Or is it that man's inmost soul \\
     Once knew each part and knew the whole? \\!
-
+\newpage
     Now, though by fleshly vapours dimmed, \\
       Not all forgot her visions past; \\
     For while the several parts are lost, \\
@@ -4967,6 +5005,7 @@ by its own, not by another's power.'
 
 
 
+\newpage
 \section{A psychological fallacy\footnote{A criticism of the doctrine of the mind as a blank sheet of paper on
 which experience writes, as held by the Stoics in anticipation of Locke.
 See Zeller, `Stoics, Epicureans, and Sceptics,' Reichel's translation,
@@ -5002,7 +5041,7 @@ p. 76.}}
       Doth the world dispose; \\
     Grasps each whole that Sense presents, \\
     Or breaks into elements? \\!
-
+\newpage
     So divides and recombines, \\
       And in changeful wise \\
     Now to low descends, and now \\
@@ -5098,6 +5137,7 @@ limits and restrictions.'
     And in upright posture steadfast \\ seems earth's baseness to despise. \\
     If with earth not all besotted, \\ to this parable give ear, \\
     Thou whose gaze is fixed on heaven, \\ who thy face on high dost rear: \\
+    \newpage
     Lift thy soul, too, heavenward; \\ haply lest it stain its heavenly worth, \\
     And thine eyes alone look upward, \\ while thy mind cleaves to the earth! \\-
 \end{ipoem}
